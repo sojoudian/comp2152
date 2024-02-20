@@ -1,0 +1,7 @@
+John, 80
+Anna, 50
+James, 100
+Mike, 90
+Sara, 70
+Bob, 65
+Steven, 45
