@@ -1,17 +1,22 @@
-def add_book(title, author_id, isbn, publication_year):
+def get_books():
   conn = sqlite3.connect('books.db')
   c = conn.cursor()
-
-  insertSQL = '''INSERT INTO books (title, author_id, isbn, publication_year) VALUES(?, ?, ?, ?)'''
-
+  query = '''SELECT * FROM books'''
   try:
-    c.execute(insertSQL, (title, author_id, isbn, publication_year))
-    conn.commit()
-    print('Book added successfully.')
-  except sqlite3.IntegrityError as e:
-    print(f'Error adding the book: {e}')
+    c.execute(query)
+    all_books = c.fetchall()
+    return all_books
   except Exception as e:
     print(f'An unexpected error occured: {e}')
   finally:
     conn.close()
-
+# Example usage
+books = get_books()
+for book in books:
+   print(book)
+#  conn = sqlite3.connect('school.db')
+#  c = conn.cursor()
+# 
+#  c.execute(''' ''')
+#  
+#  conn.close()
