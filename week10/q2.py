@@ -14,3 +14,4 @@ def add_book(title, author_id, isbn, publication_year):
     print(f'An unexpected error occured: {e}')
   finally:
     conn.close()
+
